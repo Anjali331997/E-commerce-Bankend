@@ -1,20 +1,23 @@
 const { userModel } = require('../models/userModel');
+const asyncHanlder = require('express-async-handler');
 
 
-const createUser = async (req, res) => {
+const createUser = asyncHanlder(async (req, res) => {
     const { firstname, lastname, email, mobile, password } = req.body;
 
     //To check if the user already exist
-    const find_user = await userModel.findOne( {email,password} );
+    const find_user = await userModel.findOne({ email, password });
 
     if (find_user) {
         //user already exist
-        res.send({
-            message: "user already exist",
-            success: false
-        })
-    } 
-    else{
+        // res.send({
+        //     message: "user already exist",
+        //     success: false
+        // })
+
+        throw new Error("User Already Exists")
+    }
+    else {
 
         //user do not exist create the new user
         const new_user = new userModel({
@@ -32,6 +35,6 @@ const createUser = async (req, res) => {
         }
     }
 
-}
+})
 
 module.exports = { createUser }
