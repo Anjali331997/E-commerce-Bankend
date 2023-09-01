@@ -35,11 +35,11 @@ var userSchema = new mongoose.Schema({
         default: []
     },
     address: {
-        type: isObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Address"
     },
     wishlist: {
-        type: isObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Product"
     }
 }, {
