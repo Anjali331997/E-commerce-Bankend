@@ -3,7 +3,6 @@ const asyncHanlder = require('express-async-handler');
 const bcrypt = require('bcrypt');
 const { generateToken } = require('../config/jwtToken');
 
-
 //signup a user
 const createUser = asyncHanlder(async (req, res) => {
     const { firstname, lastname, email, mobile, password } = req.body;
@@ -45,6 +44,7 @@ const createUser = asyncHanlder(async (req, res) => {
     }
 
 })
+
 //login a user
 const loginUser = asyncHanlder(async (req, res) => {
     const { email, password } = req.body;
@@ -87,23 +87,29 @@ const getallUser = asyncHanlder(async (req, res) => {
 const getaSingleUser = asyncHanlder(async (req, res) => {
     try {
         const { id } = req.params;
-        const user = await userModel.findById( id );
+        const user = await userModel.findById(id);
         res.send(user);
     } catch (error) {
         throw new Error(error)
     }
 })
 
+//delete user details
+const deleteUSer = asyncHanlder(async (req, res) => {
+    try {
+        const { id } = req.params;
+        const user = await userModel.findByIdAndDelete(id);
+        res.send({ user: user, message: "Succesfully deleted" });
+    } catch (error) {
+        throw new Error(error)
+    }
+})
 
 //edit user details
 const editUSer = asyncHanlder(async (req, res) => {
 
 })
 
-//delete user details
-const deleteUSer = asyncHanlder(async (req, res) => {
-
-})
 
 module.exports = {
     createUser,
