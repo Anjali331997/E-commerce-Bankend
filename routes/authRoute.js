@@ -9,6 +9,6 @@ authRouter.post('/login', loginUser);
 authRouter.get('/allUsers', getallUser)
 authRouter.get('/:id', authMiddleware, isAdmin, getaSingleUser)
 authRouter.put('/edit/:id', editUSer)
-authRouter.delete('/edit/:id', deleteUSer)
+authRouter.delete('/:id', deleteUSer)
 
 module.exports = { authRouter };

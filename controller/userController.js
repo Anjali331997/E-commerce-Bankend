@@ -107,9 +107,9 @@ const deleteUSer = asyncHanlder(async (req, res) => {
 
 //edit user details
 const editUSer = asyncHanlder(async (req, res) => {
-    const { user_id } = req.user;
+    const { user_id } = req.user_id;
     try {
-        const userUpdatedDetailss = await userModel.findByIdAndUpdate(user_id,
+        const userUpdatedDetails = await userModel.findByIdAndUpdate(user_id,
             {
                 firstname: req?.body?.firstname,
                 lastname: req?.body?.lastname,
