@@ -130,6 +130,6 @@ module.exports = {
     loginUser,
     getallUser,
     getaSingleUser,
-    editUSer,
-    deleteUSer
+    editUser,
+    deleteUser
 }

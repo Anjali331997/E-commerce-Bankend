@@ -1,5 +1,5 @@
 const express = require('express');
-const { createUser, loginUser, getallUser, getaSingleUser, editUSer, deleteUSer } = require('../controller/userController');
+const { createUser, loginUser, getallUser, getaSingleUser, editUser, deleteUser } = require('../controller/userController');
 const authRouter = express.Router();
 const { authMiddleware, isAdmin } = require('../middleware/authMiddleware')
 
@@ -12,6 +12,8 @@ authRouter.post('/login', loginUser);
 //the next middlewar isAdmin will check if the logged in persion is an asmin or not
 authRouter.get('/allUsers',authMiddleware,isAdmin, getallUser)
 authRouter.get('/:id', authMiddleware, isAdmin, getaSingleUser)
+authRouter.put('/edit/:id',authMiddleware,isAdmin, editUser)
+authRouter.put('/edit/:id',authMiddleware,isAdmin, editUser)
 authRouter.put('/edit/:id',authMiddleware,isAdmin, editUser)
 authRouter.delete('/:id', authMiddleware,isAdmin, deleteUser)
 
