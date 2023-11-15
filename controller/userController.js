@@ -155,7 +155,7 @@ const unblockUser = asyncHanlder(async (req, res) => {
             })
 
         res.json({
-            message: `User(${id}) is blocked`
+            message: `User(${id}) is unblocked`
         })
     } catch (error) {
         throw new Error(error)
