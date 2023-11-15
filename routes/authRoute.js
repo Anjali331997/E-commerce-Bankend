@@ -12,7 +12,7 @@ authRouter.post('/login', loginUser);
 //the next middlewar isAdmin will check if the logged in persion is an asmin or not
 authRouter.get('/allUsers',authMiddleware,isAdmin, getallUser)
 authRouter.get('/:id', authMiddleware, isAdmin, getaSingleUser)
-authRouter.put('/edit/:id',authMiddleware,isAdmin, editUSer)
-authRouter.delete('/:id', authMiddleware,isAdmin, deleteUSer)
+authRouter.put('/edit/:id',authMiddleware,isAdmin, editUser)
+authRouter.delete('/:id', authMiddleware,isAdmin, deleteUser)
 
 module.exports = { authRouter };
