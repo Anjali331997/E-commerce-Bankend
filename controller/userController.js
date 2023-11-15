@@ -124,6 +124,13 @@ const editUser = asyncHanlder(async (req, res) => {
     }
 })
 
+const blockUser = asyncHanlder(async (req, res) => [
+
+])
+
+const unblockUser = asyncHanlder(async (req, res) => [
+
+])
 
 module.exports = {
     createUser,
@@ -131,5 +138,7 @@ module.exports = {
     getallUser,
     getaSingleUser,
     editUser,
-    deleteUser
+    deleteUser,
+    blockUser,
+     unblockUser
 }
