@@ -127,7 +127,7 @@ const editUser = asyncHanlder(async (req, res) => {
 const blockUser = asyncHanlder(async (req, res) => {
     const { id } = req.params;
     try {
-        const blockUser = user.findByIdAndUpdat(id,
+        const blockUser = await userModel.findByIdAndUpdate(id,
             {
                 isBlocked: true,
             },
@@ -146,7 +146,7 @@ const blockUser = asyncHanlder(async (req, res) => {
 const unblockUser = asyncHanlder(async (req, res) => {
     const { id } = req.params;
     try {
-        const blockUser = user.findByIdAndUpdat(id,
+        const blockUser =await userModel.findByIdAndUpdate(id,
             {
                 isBlocked: false,
             },
