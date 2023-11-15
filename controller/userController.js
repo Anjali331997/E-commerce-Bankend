@@ -124,13 +124,43 @@ const editUser = asyncHanlder(async (req, res) => {
     }
 })
 
-const blockUser = asyncHanlder(async (req, res) => [
+const blockUser = asyncHanlder(async (req, res) => {
+    const { id } = req.params;
+    try {
+        const blockUser = user.findByIdAndUpdat(id,
+            {
+                isBlocked: true,
+            },
+            {
+                new: true,
+            })
 
-])
+        res.json({
+            message: `User(${id}) is blocked`
+        })
+    } catch (error) {
+        throw new Error(error)
+    }
+})
 
-const unblockUser = asyncHanlder(async (req, res) => [
+const unblockUser = asyncHanlder(async (req, res) => {
+    const { id } = req.params;
+    try {
+        const blockUser = user.findByIdAndUpdat(id,
+            {
+                isBlocked: false,
+            },
+            {
+                new: true,
+            })
 
-])
+        res.json({
+            message: `User(${id}) is blocked`
+        })
+    } catch (error) {
+        throw new Error(error)
+    }
+})
 
 module.exports = {
     createUser,
@@ -140,5 +170,5 @@ module.exports = {
     editUser,
     deleteUser,
     blockUser,
-     unblockUser
+    unblockUser
 }
