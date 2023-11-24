@@ -3,6 +3,7 @@ const asyncHanlder = require('express-async-handler');
 const bcrypt = require('bcrypt');
 const { generateToken } = require('../config/jwtToken');
 const validateMongoDbId = require('../utils/validateMongidbId')
+const {generateRefreshToken }= require('../config/refreshToken')
 
 //signup a user
 const createUser = asyncHanlder(async (req, res) => {
